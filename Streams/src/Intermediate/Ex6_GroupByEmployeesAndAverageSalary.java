@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// Calculate the average salary of employees in each department.
+
 public class Ex6_GroupByEmployeesAndAverageSalary {
 
     static void main() {
@@ -17,10 +19,14 @@ public class Ex6_GroupByEmployeesAndAverageSalary {
         );
 
         Map<String, Double> avgSalaryOfDept = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment,
-                        Collectors.averagingDouble(Employee::getSalary)));
+                .collect(Collectors.groupingBy(Employee::getDepartment,  // Grouping by department
+                        Collectors.averagingDouble(Employee::getSalary)));  // Calculating average salary in each department
+
+        //key : department, value: average salary
 
         System.out.println("Average Salary by Department: " + avgSalaryOfDept);
+
+        //output: Average Salary by Department: {Account=55000.0, HR=50000.0, IT=65000.0}
     }
 
 

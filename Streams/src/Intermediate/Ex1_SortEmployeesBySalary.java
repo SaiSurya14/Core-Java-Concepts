@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+/* Sorting Employees by Salary in Ascending Order */
+
 public class Ex1_SortEmployeesBySalary {
     static void main() {
 
@@ -16,8 +18,13 @@ public class Ex1_SortEmployeesBySalary {
                 new Employee(4, "David", "IT", 70000)
         );
 
-        List<Employee> list = employeeList.stream().sorted(Comparator.comparing(Employee::getSalary)).toList();
+        List<Employee> list = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getSalary))  // Sorting by salary in ascending order
+                .toList();
+
         System.out.printf("Sorted Employees by Salary: %s%n", list);
+
+        //output: [Employee{id=1, name='Alice', department='HR', salary=50000}, Employee{id=3, name='Charlie', department='Account', salary=55000}, Employee{id=2, name='Bob', department='IT', salary=60000}, Employee{id=4, name='David', department='IT', salary=70000}]
 
 
     }

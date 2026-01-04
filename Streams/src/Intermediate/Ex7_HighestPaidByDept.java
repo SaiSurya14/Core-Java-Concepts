@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+/*Find the highest paid employee in each department*/
+
 public class Ex7_HighestPaidByDept {
     static void main() {
         List<Employee> employees = List.of(
@@ -17,10 +20,18 @@ public class Ex7_HighestPaidByDept {
                 new Employee(4, "David", "IT", 70000)
         );
 
-        Map<String, Optional<Employee>> HighestPaidByDept = employees.stream().collect(
-                Collectors.groupingBy(Employee::getDepartment,
-                        Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+        Map<String, Optional<Employee>> HighestPaidByDept = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,   // Grouping by department
+                        Collectors.maxBy(Comparator.comparing(Employee::getSalary)))); // Finding the highest paid employee in each department
+
+        //key : department, value: highest paid employee in that department
 
         System.out.println("Highest Paid Employee by Department: " + HighestPaidByDept);
+
+        //output: Highest Paid Employee by Department:
+        // {Account=Optional[Employee{id=3, name='Charlie', department='Account', salary=55000}],
+        // HR=Optional[Employee{id=1, name='Alice', department='HR', salary=50000}],
+        // IT=Optional[Employee{id=4, name='David', department='IT', salary=70000}]}
+
     }
 }
