@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 public class Ex7_HighestPaidByDept {
     static void main() {
         List<Employee> employees = List.of(
-                new Employee(1, "Alice", "HR",50000),
-                new Employee(2, "Bob", "IT",60000),
-                new Employee(3, "Charlie", "Account",55000),
+                new Employee(1, "Alice", "HR", 50000),
+                new Employee(2, "Bob", "IT", 60000),
+                new Employee(3, "Charlie", "Account", 55000),
                 new Employee(4, "David", "IT", 70000)
         );
 
